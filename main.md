@@ -1,5 +1,7 @@
 # 计算物理基础2018习题参考解答发布
 
+此答案仅供参考，对于简单的问题这里一般只给出一种方法。对于具有讨论意义的题目，我们也会列出同学们作业中的优秀解法。
+
 | 作业        |                    链接                    |
 | --------- | :--------------------------------------: |
 | 第一次和第二次作业 | [在线查看](https://wang-guosheng.github.io/CompPhyExs/ex1ex2.html)/[下载Live Script](https://wang-guosheng.github.io/CompPhyExs/ex1ex2.mlx) |

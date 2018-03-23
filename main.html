@@ -2,7 +2,7 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>publish.md</title><link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --code-block-bg-color: inherit; }
+<title>main.md</title><link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --code-block-bg-color: inherit; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
 a:active, a:hover { outline: 0px; }
@@ -38,7 +38,8 @@ p { -webkit-margin-before: 1rem; -webkit-margin-after: 1rem; -webkit-margin-star
 a { cursor: pointer; }
 sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; }
 #write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; margin: 4px 0px 0px; }
-figure { max-width: 100%; overflow-x: auto; margin: 0px; }
+#write > figure:first-child { margin-top: 16px; }
+figure { overflow-x: auto; margin: -8px 0px 0px -8px; max-width: calc(100% + 16px); padding: 8px; }
 tr { break-inside: avoid; break-after: auto; }
 thead { display: table-header-group; }
 table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
@@ -116,7 +117,8 @@ a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; 
 .md-attr { display: none; }
 .md-fn-count::after { content: "."; }
 .md-tag { opacity: 0.5; }
-.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: monospace; }
+pre, code, tt { font-family: var(--monospace); }
+.md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
 code { text-align: left; }
 h1 .md-tag, h2 .md-tag, h3 .md-tag, h4 .md-tag, h5 .md-tag, h6 .md-tag { font-weight: initial; opacity: 0.35; }
 a.md-print-anchor { border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: none !important; background: transparent !important; text-decoration: initial !important; text-shadow: initial !important; }
@@ -129,6 +131,7 @@ a.md-print-anchor { border-width: initial !important; border-style: none !import
 .MathJax_SVG * { transition: none; }
 .md-diagram-panel > svg { max-width: 100%; }
 [lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; }
+table tr th { border-bottom: 0px; }
 
 
 :root { --side-bar-bg-color: #fafafa; --control-text-color: #777; }
@@ -175,7 +178,7 @@ blockquote blockquote { padding-right: 0px; }
 table { padding: 0px; word-break: initial; }
 table tr { border-top: 1px solid rgb(204, 204, 204); margin: 0px; padding: 0px; }
 table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
-table tr th { font-weight: bold; border: 1px solid rgb(204, 204, 204); text-align: left; margin: 0px; padding: 6px 13px; }
+table tr th { font-weight: bold; border-width: 1px 1px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: rgb(204, 204, 204); border-right-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-image: initial; border-bottom-style: initial; border-bottom-color: initial; text-align: left; margin: 0px; padding: 6px 13px; }
 table tr td { border: 1px solid rgb(204, 204, 204); text-align: left; margin: 0px; padding: 6px 13px; }
 table tr th:first-child, table tr td:first-child { margin-top: 0px; }
 table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
@@ -220,6 +223,6 @@ header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Aria
 </style>
 </head>
 <body class='typora-export' >
-<div  id='write'  class = 'is-node'><h1><a name='header-n21' class='md-header-anchor '></a>计算物理基础2018习题参考解答发布</h1><figure><table><thead><tr><th>作业</th><th style='text-align:center;' >链接</th></tr></thead><tbody><tr><td>第一次和第二次作业</td><td style='text-align:center;' ><a href='https://wang-guosheng.github.io/CompPhyExs/ex1ex2.html'>在线查看</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex1ex2.mlx'>下载Live Script</a></td></tr><tr><td>第三次作业</td><td style='text-align:center;' >&nbsp;</td></tr></tbody></table></figure><h3><a name='header-n33' class='md-header-anchor '></a>说明：</h3><p>MATLAB® 实时脚本（<code>Live Script</code>）是一种交互式文档，它在一个称为实时编辑器的环境中将 MATLAB 代码与嵌入式输出、格式化文本、方程和图像组合到一起。实时脚本使用实时脚本文件格式存储在扩展名为 <code>.mlx</code> 的文件中。在MATLAB主页选择<code>Home&gt;Open&gt;Open</code>选择下载的文件打开即可。</p></div>
+<div  id='write'  class = 'is-node'><h1><a name='header-n0' class='md-header-anchor '></a>计算物理基础2018习题参考解答发布</h1><p>此答案仅供参考，对于简单的问题这里一般只给出一种方法。对于具有讨论意义的题目，我们也会列出同学们作业中的优秀解法。</p><figure><table><thead><tr><th>作业</th><th style='text-align:center;' >链接</th></tr></thead><tbody><tr><td>第一次和第二次作业</td><td style='text-align:center;' ><a href='https://wang-guosheng.github.io/CompPhyExs/ex1ex2.html'>在线查看</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex1ex2.mlx'>下载Live Script</a></td></tr><tr><td>第三次作业</td><td style='text-align:center;' >&nbsp;</td></tr></tbody></table></figure><h3><a name='header-n12' class='md-header-anchor '></a>说明：</h3><p>MATLAB® 实时脚本（<code>Live Script</code>）是一种交互式文档，它在一个称为实时编辑器的环境中将 MATLAB 代码与嵌入式输出、格式化文本、方程和图像组合到一起。实时脚本使用实时脚本文件格式存储在扩展名为 <code>.mlx</code> 的文件中。在MATLAB主页选择<code>Home&gt;Open&gt;Open</code>选择下载的文件打开即可。</p></div>
 </body>
 </html>
