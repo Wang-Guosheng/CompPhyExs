@@ -2,10 +2,10 @@
 
 此答案仅供参考，对于简单的问题这里一般只给出一种方法。对于具有讨论意义的题目，我们也会列出同学们作业中的优秀解法。
 
-| 作业        |                    链接                    |
-| --------- | :--------------------------------------: |
-| 第一次和第二次作业 | [在线查看](https://wang-guosheng.github.io/CompPhyExs/ex1ex2.html)/[下载Live Script](https://wang-guosheng.github.io/CompPhyExs/ex1ex2.mlx) |
-| 第三次作业     |                                          |
+| 作业        |                    链接                    | 备注 |
+| :-------- | :-: |:--------------------------------------: |
+| 第一次和第二次作业 | [在线查看](https://wang-guosheng.github.io/CompPhyExs/ex1ex2.html)/[下载Live Script](https://wang-guosheng.github.io/CompPhyExs/ex1ex2.mlx) |网页版答案是MATLAB2016a(gln64版本)，不同版本下呈现结果可能稍有不同。|
+| 第三次作业     |                                          ||
 
 ### 说明：
 
