@@ -39,4 +39,4 @@
 
 ##  
 
-This webpage is open sourced under [MIT LICENCE](https://wang-guosheng.github.io/CompPhyExs/LICENSE).
+This webpage is open sourced under [MIT LICENSE](https://wang-guosheng.github.io/CompPhyExs/LICENSE.html).
