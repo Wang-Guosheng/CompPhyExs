@@ -2,12 +2,18 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>main.md</title><link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}:root { --bg-color: #ffffff; --text-color: #333333; --code-block-bg-color: inherit; }
+<title>计算物理基础2018习题解答</title><link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}#write, body { height: auto; }
+#write, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write ol, #write p, #write ul { position: relative; }
+#write, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+.CodeMirror, .md-fences, table { text-align: left; }
+.md-reset, a:active, a:hover { outline: 0px; }
+.md-reset, .md-toc-item a { text-decoration: none; }
+.MathJax_SVG, .md-reset { float: none; direction: ltr; }
+:root { --bg-color:#ffffff; --text-color:#333333; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
-body { margin: 0px; padding: 0px; height: auto; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
-a:active, a:hover { outline: 0px; }
+body { margin: 0px; padding: 0px; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
 .in-text-selection, ::selection { background: rgb(181, 214, 252); text-shadow: none; }
-#write { margin: 0px auto; height: auto; width: inherit; word-break: normal; word-wrap: break-word; position: relative; padding-bottom: 70px; white-space: pre-wrap; overflow-x: visible; }
+#write { margin: 0px auto; word-break: normal; word-wrap: break-word; padding-bottom: 70px; white-space: pre-wrap; overflow-x: visible; }
 .for-image #write { padding-left: 8px; padding-right: 8px; }
 body.typora-export { padding-left: 30px; padding-right: 30px; }
 @media screen and (max-width: 500px) {
@@ -16,14 +22,12 @@ body.typora-export { padding-left: 30px; padding-right: 30px; }
   .CodeMirror-gutters { display: none !important; }
 }
 .typora-export #write { margin: 0px auto; }
-#write > p:first-child, #write > ul:first-child, #write > ol:first-child, #write > pre:first-child, #write > blockquote:first-child, #write > div:first-child, #write > table:first-child { margin-top: 30px; }
+#write > blockquote:first-child, #write > div:first-child, #write > ol:first-child, #write > p:first-child, #write > pre:first-child, #write > table:first-child, #write > ul:first-child { margin-top: 30px; }
 #write li > table:first-child { margin-top: -20px; }
 img { max-width: 100%; vertical-align: middle; }
-input, button, select, textarea { color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; }
+button, input, select, textarea { color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; }
 input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
-::before, ::after, * { box-sizing: border-box; }
-#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write div, #write pre { width: inherit; }
-#write p, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6 { position: relative; }
+*, ::after, ::before { box-sizing: border-box; }
 h1 { font-size: 2rem; }
 h2 { font-size: 1.8rem; }
 h3 { font-size: 1.6rem; }
@@ -32,75 +36,72 @@ h5 { font-size: 1.2rem; }
 h6 { font-size: 1rem; }
 p { -webkit-margin-before: 1rem; -webkit-margin-after: 1rem; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
 .typora-export p { white-space: normal; }
-.mathjax-block { margin-top: 0px; margin-bottom: 0px; -webkit-margin-before: 0rem; -webkit-margin-after: 0rem; }
+.mathjax-block { margin-top: 0px; margin-bottom: 0px; -webkit-margin-before: 0px; -webkit-margin-after: 0px; }
 .hidden { display: none; }
-.md-blockmeta { color: rgb(204, 204, 204); font-weight: bold; font-style: italic; }
+.md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
 a { cursor: pointer; }
 sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; }
-#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; margin: 4px 0px 0px; }
+#write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
 #write > figure:first-child { margin-top: 16px; }
 figure { overflow-x: auto; margin: -8px 0px 0px -8px; max-width: calc(100% + 16px); padding: 8px; }
 tr { break-inside: avoid; break-after: auto; }
 thead { display: table-header-group; }
-table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; text-align: left; }
+table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; }
+.CodeMirror-line, .md-fences { break-inside: avoid; }
 table.md-table td { min-width: 80px; }
-.CodeMirror-gutters { border-right: 0px; background-color: inherit; }
-.CodeMirror { text-align: left; }
+.CodeMirror-gutters { border-right: 0px; background-color: inherit; margin-right: 4px; }
 .CodeMirror-placeholder { opacity: 0.3; }
 .CodeMirror pre { padding: 0px 4px; }
 .CodeMirror-lines { padding: 0px; }
 div.hr:focus { cursor: none; }
 pre { white-space: pre-wrap; }
-.CodeMirror-gutters { margin-right: 4px; }
-.md-fences { font-size: 0.9rem; display: block; break-inside: avoid; text-align: left; overflow: visible; white-space: pre; background: var(--code-block-bg-color); position: relative !important; }
+.md-fences { font-size: 0.9rem; display: block; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
 .md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
 .md-fences .CodeMirror.CodeMirror-wrap { top: -1.6em; margin-bottom: -1.6em; }
 .md-fences.mock-cm { white-space: pre-wrap; }
 .show-fences-line-number .md-fences { padding-left: 0px; }
 .show-fences-line-number .md-fences.mock-cm { padding-left: 40px; }
-.CodeMirror-line { break-inside: avoid; }
 .footnotes { opacity: 0.8; font-size: 0.9rem; padding-top: 1em; padding-bottom: 1em; }
 .footnotes + .footnotes { margin-top: -1em; }
-.md-reset { margin: 0px; padding: 0px; border: 0px; outline: 0px; vertical-align: top; background: transparent; text-decoration: none; text-shadow: none; float: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: normal; text-align: left; box-sizing: content-box; direction: ltr; }
+.md-reset { margin: 0px; padding: 0px; border: 0px; vertical-align: top; background: 0px 0px; text-shadow: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; }
+.md-toc-inner, a img, img a { cursor: pointer; }
 li div { padding-top: 0px; }
 blockquote { margin: 1rem 0px; }
-li p, li .mathjax-block { margin: 0.5rem 0px; }
+li .mathjax-block, li p { margin: 0.5rem 0px; }
 li { margin: 0px; position: relative; }
 blockquote > :last-child { margin-bottom: 0px; }
 blockquote > :first-child { margin-top: 0px; }
-.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: nowrap; }
 @media print {
-  html, body { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
   .typora-export * { -webkit-print-color-adjust: exact; }
   h1, h2, h3, h4, h5, h6 { break-after: avoid-page; orphans: 2; }
   p { orphans: 4; }
   html.blink-to-pdf { font-size: 13px; }
   .typora-export #write { padding-left: 1cm; padding-right: 1cm; padding-bottom: 0px; break-after: avoid; }
   .typora-export #write::after { height: 0px; }
-  @page { margin: 20mm 0mm; }
+  @page { margin: 20mm 0px; }
 }
 .footnote-line { margin-top: 0.714em; font-size: 0.7em; }
-a img, img a { cursor: pointer; }
-pre.md-meta-block { font-size: 0.8rem; min-height: 2.86rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
+pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
 p > img:only-child { display: block; margin: auto; }
-p .md-image:only-child { display: inline-block; width: 100%; text-align: center; }
+.md-line > .md-image:only-child, p > .md-image:only-child { display: inline-block; width: 100%; text-align: center; }
+.mathjax-block:not(:empty)::after, .md-toc-content::after, .md-toc::after { display: none; }
 #write .MathJax_Display { margin: 0.8em 0px 0px; }
 .mathjax-block { white-space: pre; overflow: hidden; width: 100%; }
 p + .mathjax-block { margin-top: -1.143rem; }
-.mathjax-block:not(:empty)::after { display: none; }
-[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: none; box-shadow: none; }
-.task-list { list-style-type: none; }
-.task-list-item { position: relative; padding-left: 1em; }
-.task-list-item input { position: absolute; top: 0px; left: 0px; }
+[contenteditable="true"]:active, [contenteditable="true"]:focus { outline: 0px; box-shadow: none; }
+.md-task-list-item { position: relative; list-style-type: none; }
+.task-list-item.md-task-list-item { padding-left: 0px; }
+.md-task-list-item > input { position: absolute; top: 0px; left: 0px; margin-left: -1.2em; margin-top: calc(1em - 10px); }
 .math { font-size: 1rem; }
 .md-toc { min-height: 3.58rem; position: relative; font-size: 0.9rem; border-radius: 10px; }
+.MathJax_SVG, .mathjax-block .MathJax_SVG_Display { text-indent: 0px; max-width: none; max-height: none; min-height: 0px; }
 .md-toc-content { position: relative; margin-left: 0px; }
-.md-toc::after, .md-toc-content::after { display: none; }
 .md-toc-item { display: block; color: rgb(65, 131, 196); }
-.md-toc-item a { text-decoration: none; }
 .md-toc-inner:hover { }
-.md-toc-inner { display: inline-block; cursor: pointer; }
-.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: bold; }
+.md-toc-inner { display: inline-block; }
+.md-toc-h1 .md-toc-inner { margin-left: 0px; font-weight: 700; }
 .md-toc-h2 .md-toc-inner { margin-left: 2em; }
 .md-toc-h3 .md-toc-inner { margin-left: 4em; }
 .md-toc-h4 .md-toc-inner { margin-left: 6em; }
@@ -117,20 +118,20 @@ a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; 
 .md-attr { display: none; }
 .md-fn-count::after { content: "."; }
 .md-tag { opacity: 0.5; }
-pre, code, tt { font-family: var(--monospace); }
+code, pre, tt { font-family: var(--monospace); }
 .md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
 code { text-align: left; }
 h1 .md-tag, h2 .md-tag, h3 .md-tag, h4 .md-tag, h5 .md-tag, h6 .md-tag { font-weight: initial; opacity: 0.35; }
-a.md-print-anchor { border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: none !important; background: transparent !important; text-decoration: initial !important; text-shadow: initial !important; }
+a.md-print-anchor { border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
 .md-inline-math .MathJax_SVG .noError { display: none !important; }
-.mathjax-block .MathJax_SVG_Display { text-align: center; margin: 1em 0em; position: relative; text-indent: 0px; max-width: none; max-height: none; min-height: 0px; min-width: 100%; width: auto; display: block !important; }
+.mathjax-block .MathJax_SVG_Display { text-align: center; margin: 1em 0px; position: relative; min-width: 100%; width: auto; display: block !important; }
 .MathJax_SVG_Display, .md-inline-math .MathJax_SVG_Display { width: auto; margin: inherit; display: inline-block !important; }
 .MathJax_SVG .MJX-monospace { font-family: monospace; }
 .MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
-.MathJax_SVG { display: inline; font-style: normal; font-weight: normal; line-height: normal; zoom: 90%; text-indent: 0px; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; float: none; direction: ltr; max-width: none; max-height: none; min-width: 0px; min-height: 0px; border: 0px; padding: 0px; margin: 0px; }
+.MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; min-width: 0px; border: 0px; padding: 0px; margin: 0px; }
 .MathJax_SVG * { transition: none; }
-.md-diagram-panel > svg { max-width: 100%; }
-[lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; }
+.md-diagram-panel > svg, [lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; }
+[lang="mermaid"] .node text { font-size: 1rem; }
 table tr th { border-bottom: 0px; }
 
 
@@ -185,9 +186,7 @@ table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
 .CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); }
 .md-fences, code, tt { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 4px 0px; font-size: 0.9em; }
 .md-fences { margin-bottom: 15px; margin-top: 15px; padding: 8px 1em 6px; }
-.task-list { padding-left: 0px; }
-.task-list-item { padding-left: 32px; }
-.task-list-item input { top: 3px; left: 8px; }
+.md-task-list-item > input { margin-left: -1.3em; }
 @media screen and (min-width: 914px) {
 }
 @media print {
@@ -202,7 +201,7 @@ table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
 #write > h4.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
 #write > h5.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
 #write > h6.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
-.md-image > .md-meta { border: 1px solid rgb(221, 221, 221); border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 4px 0px; font-size: 0.9em; color: inherit; }
+.md-image > .md-meta { border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 4px 0px; font-size: 0.9em; color: inherit; }
 .md-tag { color: inherit; }
 .md-toc { margin-top: 20px; padding-bottom: 20px; }
 .sidebar-tabs { border-bottom: none; }
@@ -214,6 +213,7 @@ header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Aria
 .file-node-content:hover .file-node-icon, .file-node-content:hover .file-node-open-state { visibility: visible; }
 .mac-seamless-mode #typora-sidebar { background-color: var(--side-bar-bg-color); }
 .md-lang { color: rgb(180, 101, 77); }
+.html-for-mac .context-menu { --item-hover-bg-color: #E6F0FE; }
 
 
 
@@ -223,6 +223,6 @@ header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Aria
 </style>
 </head>
 <body class='typora-export' >
-<div  id='write'  class = 'is-node'><p><img src='http://course.bnu.edu.cn/course/jswl/images/design_01.gif' alt='img' /></p><h1><a name='header-n162' class='md-header-anchor '></a>计算物理基础2018习题参考解答发布</h1><p>此答案仅供参考，对于简单的问题这里一般只给出一种方法。对于具有讨论意义的题目，我们也会列出同学们作业中的优秀解法。如果你发现答案存在问题，请通过微信反馈或通过本页末尾的邮件地址直接联系我们。</p><figure><table><thead><tr><th style='text-align:left;' >作业</th><th style='text-align:center;' >链接</th><th style='text-align:center;' >备注</th></tr></thead><tbody><tr><td style='text-align:left;' >第一次和第二次作业</td><td style='text-align:center;' ><a href='https://wang-guosheng.github.io/CompPhyExs/ex1ex2.html'>在线查看</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex1ex2.mlx'>下载Live Script</a></td><td style='text-align:center;' >网页版答案是MATLAB2016a(gln64版本)运行的结果，不同版本下呈现结果可能稍有不同。</td></tr><tr><td style='text-align:left;' >第三次作业</td><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' >&nbsp;</td></tr></tbody></table></figure><h3><a name='header-n179' class='md-header-anchor '></a>说明：</h3><p>MATLAB® 实时脚本（<code>Live Script</code>）是一种交互式文档，它在一个称为实时编辑器的环境中将 MATLAB 代码与嵌入式输出、格式化文本、方程和图像组合到一起。实时脚本使用实时脚本文件格式存储在扩展名为 <code>.mlx</code> 的文件中。在MATLAB主页选择<code>Home&gt;Open&gt;Open</code>选择下载的文件打开即可。如需写作实时脚本，可在MATLAB主页选择<code>Home&gt;New&gt;Live Script</code>新建，<code>Ctrl</code>+<code>E</code>切换文本模式与代码模式，点击<code>Run</code>运行即可。</p><h2><a name='header-n182' class='md-header-anchor '></a>作业的问题</h2><p>请注意看题，注意<strong>别</strong>再漏题~</p><p>另，MATLAB包括大量库函数，遇到新的功能需求时，实际应用中最好先查找MATLAB自带的函数（以至工具箱），如果找不到再考虑自己实现。</p><h2><a name='header-n187' class='md-header-anchor '></a>关于作业命名和格式</h2><p>下次提交作业时，请将所有附件<strong>文件</strong>（而不只是邮件主题）各自命名为<em>学号姓名文件名</em>的格式，因为学号在前比较方便排序<code>👦</code> 。</p><p>对于编程和命令的作业（除了<code>PPT</code>以外的作业），我建议使用实时脚本来写/提交，这样写作和批改都比较方便。当然，<code>Word</code>, <code>PDF</code>, <code>MD</code>, <code>HTML</code>等格式也可以接受，但请尽量保持格式清晰。</p><p>作图题直接存图象即可；其它题目不必每题都截图，在文件末尾插一张全屏的截图证明你亲自运行过即可。输出结果很长的题可以只粘贴开头几行的结果。</p><h2><a name='header-n194' class='md-header-anchor '></a>助教联系方式</h2><p>王国胜: <a href='mailto:wguosh@outlook.com' target='_blank' >wguosh@outlook.com</a>。</p></div>
+<div  id='write'  class = 'is-node'><p><img src='http://course.bnu.edu.cn/course/jswl/images/design_01.gif' alt='img' /></p><h1><a name='header-n56' class='md-header-anchor '></a>2018习题参考解答</h1><p>​	此答案<em>仅供参考</em>，对于简单的问题这里一般只给出一种方法，有同学问过的题可能多写一点。<span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-1-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0.243ex" viewBox="0 -52.3 0 104.5" role="img" focusable="false" style="vertical-align: -0.121ex;"><defs></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"></g></svg></span><script type="math/tex" id="MathJax-Element-1">%对于具有讨论意义的题目，我们也可能列出同学们作业中的优秀解法。</script>如果你发现答案存在问题，可以通过微信/公邮反馈或通过本页末尾的邮件地址直接联系我们。</p><h2><a name='header-n59' class='md-header-anchor '></a>习题解答</h2><figure><table><thead><tr><th style='text-align:left;' >作业</th><th style='text-align:center;' >链接</th><th style='text-align:center;' >备注</th></tr></thead><tbody><tr><td style='text-align:left;' >第一次和第二次作业</td><td style='text-align:center;' ><a href='https://wang-guosheng.github.io/CompPhyExs/ex1ex2.html'>在线查看</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex1ex2.mlx'>下载Live Script</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex1ex2.pdf'>下载PDF</a></td><td style='text-align:center;' >网页版答案是MATLAB2017a(win64版本)运行的结果。不同版本下呈现结果可能稍有不同。</td></tr><tr><td style='text-align:left;' >第三次作业</td><td style='text-align:center;' ><a href='https://wang-guosheng.github.io/CompPhyExs/ex3.html'>在线查看</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex3.mlx'>下载Live Script</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex3.pdf'>下载PDF</a></td><td style='text-align:center;' >&nbsp;</td></tr></tbody></table></figure><h4><a name='header-n73' class='md-header-anchor '></a>关于<code>Live Script</code>的说明：</h4><p>​	MATLAB® 实时脚本（<code>Live Script</code>）是一种交互式文档，它在一个称为实时编辑器的环境中将 MATLAB 代码与嵌入式输出、格式化文本、方程和图像组合到一起。实时脚本使用实时脚本文件格式存储在扩展名为 <code>.mlx</code> 的文件中。在MATLAB主页选择<code>Home&gt;Open&gt;Open</code>选择下载的文件打开即可。如需写作实时脚本，可在MATLAB主页选择<code>Home&gt;New&gt;Live Script</code>新建，<code>Ctrl</code>+<code>E</code>切换文本模式与代码模式，点击<code>Run</code>运行即可。</p><h2><a name='header-n76' class='md-header-anchor '></a>前两次作业的问题</h2><p>​	请注意看题；注意不要漏题；</p><p>​	另外有一个建议，MATLAB包括大量库函数，作业里遇到新的功能需求时，可以先查找MATLAB自带的函数（以至工具箱），如果找不到再考虑自己实现。</p><h2><a name='header-n81' class='md-header-anchor '></a>关于作业命名和格式</h2><p>​	提交作业时，请将所有附件<strong>文件</strong>（而不只是邮件主题）各自命名为<em>学号姓名文件名</em>的格式，因为学号在前比较方便排序<code>👦</code> 。</p><p>​	对于编程和命令的作业（除了<code>PPT</code>以外的作业），有兴趣的同学可以用实时脚本来写/提交。此外，<code>Word</code>, <code>PDF</code>, <code>MD</code>, <code>HTML</code>等格式也可以接受，不过请尽量保持格式清晰。</p><p>	如果你在Word或作图题直接存图象即可；其它题目不必每题都截图，只要证明你亲自运行过即可。输出结果很长的题可以只粘贴开头几行的结果。</p><h2><a name='header-n88' class='md-header-anchor '></a>助教联系方式</h2><ul><li>王国胜：<a href='mailto:wguosh@outlook.com' target='_blank' >wguosh@outlook.com</a></li><li>杨烨华：<a href='mailto:***@***.com' target='_blank' >***@***.com</a></li><li>作业邮箱：<a href='mailto:jswljc2018@mail.163.com' target='_blank' >jswljc2018@mail.163.com</a></li></ul><h2><a name='header-n99' class='md-header-anchor '></a><br/></h2><p>This webpage is open sourced under <a href='https://wang-guosheng.github.io/CompPhyExs/LICENCE'>MIT LICENCE</a>.</p></div>
 </body>
 </html>
