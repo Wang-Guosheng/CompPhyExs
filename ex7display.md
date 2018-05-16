@@ -15,7 +15,7 @@ figure; polarplot(t, r);
 area = trapz(r.^2/2)*dlm
 ```
 
-![52647588212](figs/1526475882129.png)
+![52647588212](https://wang-guosheng.github.io/CompPhyExs/figs/1526475882129.png)
 
 area =
 	4.712388980384692
@@ -117,7 +117,7 @@ axis equal; xlabel('x'); ylabel('z');
 title({'Electric Field of a Uniformly Charged Circle', '(A Cross Section through a Diameter)'});
 ```
 
-![52647618808](figs/1526476188086.png)
+![52647618808](https://wang-guosheng.github.io/CompPhyExs/figs/1526476188086.png)
 
 ```matlab
 figure; hold on;
@@ -142,8 +142,7 @@ axis equal; xlabel('x'); ylabel('y'); zlabel('z');
 title('Electric Field of a Uniformly Charged Circle');
 ```
 
-![52647622894](figs/
-1526476228948.png)
+![52647622894](https://wang-guosheng.github.io/CompPhyExs/figs/1526476228948.png)
 
 以圆环所在平面为 $xOy$ 坐标面，以环心为原点，则空间任意一点 ${\rm d}q$ 的电场强度为：
 $$
@@ -181,7 +180,7 @@ figure; hold on;
 axis equal; xlabel('x'); ylabel('y'); zlabel('z');
 title('Electric Field of a Uniformly Charged Circle');
 ```
-![52647626876](figs/1526476268765.png)
+![52647626876](https://wang-guosheng.github.io/CompPhyExs/figs/1526476268765.png)
 
 ## 5 Helmholtz
 
@@ -192,7 +191,7 @@ title('Electric Field of a Uniformly Charged Circle');
 figure; helmholtzfun(1,1,1);
 axis equal; axis([-2,2,-2,2,-2,2]); view([3,2,1]);
 ```
-![52647643305](figs/1526476433053.png)
+![52647643305](https://wang-guosheng.github.io/CompPhyExs/figs/1526476433053.png)
 
 ###  变化距离
 
@@ -205,9 +204,9 @@ for k = 1:length(hscale)
     view([6,3,1]); getframe;
 end
 ```
-![52647646478](F:\Files\Documents\CptSci\MATLABEX\Newterm\Githubsite\CompPhyExs\figs/1526476464787.png)
+![52647646478](https://wang-guosheng.github.io/CompPhyExs/figs/1526476464787.png)
 
-![52647647791](figs/1526476477912.png)
+![52647647791](https://wang-guosheng.github.io/CompPhyExs/figs/1526476477912.png)
 
 ###  变化下环半径
 
@@ -220,9 +219,9 @@ for k = 1:length(Rdscale)
     view([6,3,1]); getframe;
 end
 ```
-![52647650536](figs/1526476505361.png)
+![52647650536](https://wang-guosheng.github.io/CompPhyExs/figs/1526476505361.png)
 
-![52647653131](figs/1526476531310.png)
+![52647653131](https://wang-guosheng.github.io/CompPhyExs/figs/1526476531310.png)
 
 ## 链接
 
