@@ -15,41 +15,79 @@ figure; polarplot(t, r);
 area = trapz(r.^2/2)*dlm
 ```
 
+![52647588212](./figs/1526475882129.png)
+
+area =
+	4.712388980384692
+
 ## 三个积分
+
  ### 第1个积分
 ```matlab
 integral3(@(x,y,z)x.*y.*z,1,2,@(x)x,@(x)2*x,@(x,y)x.*y,@(x,y)2*x.*y)
 integral(@(x)arrayfun(@(x)integral2(@(y,z)x.*y.*z,x,2*x,@(y)x.*y,@(y)2.*x.*y),x),1,2)
 integral(@(x)arrayfun(@(x)integral(@(y)arrayfun(@(y)integral(@(z)x.*y.*z,x.*y,2*x.*y),y),x,2*x),x),1,2)
 ```
+ans = 179.2969
+
 ###  第2个积分
+
 ```matlab
 integral(@(x)1./arrayfun(@(x)integral(@(y)y,x,x.^2),x),10,100)
 ```
+ans = 179.2969
+
 ### 第3个积分
+
 ```matlab
 integral(@(y)2*y.*exp(-y.^2).*arrayfun(@(y)integral(@(x)exp(-x.^2)./(x.^2+y.^2),-1,1),y).^2,0.2,1)
 ```
+ans = 179.2969
+
 ## 1 符号和数值积分
+
 ### 符号法
 ```matlab
 syms x; int(x^4*(1-x)^4/(1+x^2), x, 0, 1)
 ```
+ans = $\dfrac{22}{7}-\pi$
+
 ### 数值法
+
 ```matlab
 X=0:0.1:1; trapz(X,X.^4.*(1-X).^4./(1+X.^2))
+```
+ans = 0.0013
+```matlab
 integral(@(x)x.^4.*(1-x).^4./(1+x.^2), 0, 1)
 ```
+ans = 0.0013
+
 ## 2 误差函数
+
 ```matlab
 format long; myerf = @(x)2/sqrt(pi)*integral(@(xi)exp(-xi.^2), 0, x); X=0.1:0.1:1.0; arrayfun(myerf,X), erf(X)
 ```
+ans =
+0.112462916018285 0.222702589210478 0.328626759459127 0.428392355046668 0.520499877813047 0.603856090847926 0.677801193837418 0.742100964707661 0.796908212422832 0.842700792949715
+ans =
+0.112462916018285 0.222702589210478 0.328626759459127 0.428392355046668 0.520499877813047 0.603856090847926 0.677801193837418 0.742100964707661 0.796908212422832 0.842700792949715
+
 ## 3 室温下氢分子运动速率的 Maxwell 分布
+
  以$v_p$为速度量纲做无量纲化运算。以$x$代表$\frac{v}{v_p}$
 ```matlab
 f=@(x)4/sqrt(pi)*x.^2.*exp(-x.^2); integral(f,0,1),  integral(f,0,3.3),  integral(f,3e4/1578,3e8/1578)
 ```
+ans =
+	0.427593295529120
+ans =
+	0.999927519495740
+ans =
+	9.367342245784810e-157
+
 ## 4 均匀带电圆环的电场
+
  如果绘制二维图, 先计算电势，有：
 
 $$
@@ -77,6 +115,11 @@ quiver(x(1:20:end,1:20:end), z(1:20:end,1:20:end), Ex(1:20:end,1:20:end), Ez(1:2
 plot([-1, 1], [0, 0], 'r.');
 axis equal; xlabel('x'); ylabel('z');
 title({'Electric Field of a Uniformly Charged Circle', '(A Cross Section through a Diameter)'});
+```
+
+![52647618808](./figs/1526476188086.png)
+
+```matlab
 figure; hold on;
 s1 = copyobj(sl_left_bottom, gca); s2 = copyobj(sl_right_top, gca);
 s0 = allchild(gca); s = copyobj(s0, gca); delete(s0);
@@ -99,8 +142,10 @@ axis equal; xlabel('x'); ylabel('y'); zlabel('z');
 title('Electric Field of a Uniformly Charged Circle');
 ```
 
-以圆环所在平面为 $xOy$ 坐标面，以环心为原点，则空间任意一点 ${\rm d}q$ 的电场强度为：
+![52647622894](./figs/
+1526476228948.png)
 
+以圆环所在平面为 $xOy$ 坐标面，以环心为原点，则空间任意一点 ${\rm d}q$ 的电场强度为：
 $$
 \vec{E}_P=\oint{C_a}\frac{(\vec{r_P}-\vec{r{\text{d}Q}})\text{d}(4\pi\varepsilon{0}q)}{4\pi\varepsilon{0}|\vec{r_P}-\vec{r{\text{d}Q}}|^3}\\	
 
@@ -129,20 +174,28 @@ figure; hold on;
     set(allchild(gca), 'color', [.8,.8,.8]);
     t = 0:pi/20:2*pi; plot(exp(1i*t),'b-','LineWidth',3);
     for k = 1:5
-        patch(isosurface(x,y,z,V,25*k),'FaceAlpha',0.05*k,'LineStyle','none','FaceColor','green');
+       patch(isosurface(x,y,z,V,25*k), 'FaceAlpha', 0.05*k, 'LineStyle', 'none', 'FaceColor', 'green');
     end
     light;
     view([3,2,1]); axis equal;
 axis equal; xlabel('x'); ylabel('y'); zlabel('z');
 title('Electric Field of a Uniformly Charged Circle');
 ```
+![52647626876](./figs/1526476268765.png)
+
 ## 5 Helmholtz
+
+ * [函数 helmholtzfun](https://wang-guosheng.github.io/CompPhyExs/helmholtzfun.html)
+
 ### 绘图
 ```matlab
 figure; helmholtzfun(1,1,1);
 axis equal; axis([-2,2,-2,2,-2,2]); view([3,2,1]);
 ```
+![52647643305](./figs/1526476433053.png)
+
 ###  变化距离
+
 ```matlab
 hscale = 0:0.1:1.2;
 figure('visible', 'on');
@@ -152,7 +205,12 @@ for k = 1:length(hscale)
     view([6,3,1]); getframe;
 end
 ```
+![52647646478](F:\Files\Documents\CptSci\MATLABEX\Newterm\Githubsite\CompPhyExs\./figs/1526476464787.png)
+
+![52647647791](./figs/1526476477912.png)
+
 ###  变化下环半径
+
 ```matlab
 Rdscale = .1:.1:2;
 figure('visible', 'on');
@@ -162,12 +220,14 @@ for k = 1:length(Rdscale)
     view([6,3,1]); getframe;
 end
 ```
+![52647650536](./figs/1526476505361.png)
+
+![52647653131](./figs/1526476531310.png)
+
 ## 链接
- * <https://wang-guosheng.github.io/CompPhyExs/ex7.mlx 下载此页对应的实时脚本>
- * <https://wang-guosheng.github.io/CompPhyExs/ex7.pdf 下载此页对应的PDF>
- * <https://wang-guosheng.github.io/CompPhyExs/main.html 主页>
- * <https://wang-guosheng.github.io/CompPhyExs/ex8.html 下一页>
- * <https://ww2.mathworks.cn/matlabcentral/fileexchange/38863-extract-contour-data-from-contour-matrix-c 
- contourdata 函数下载>
- * <https://wang-guosheng.github.io/CompPhyExs/helmholtzfun.html helmholtzfun 
- 函数>
+
+ * [下载此页对应的实时脚本](https://wang-guosheng.github.io/CompPhyExs/ex7.mlx)
+ * [下载此页对应的PDF](https://wang-guosheng.github.io/CompPhyExs/ex7.pdf)
+ * [主页](https://wang-guosheng.github.io/CompPhyExs/main.html)
+ * [下一页](https://wang-guosheng.github.io/CompPhyExs/ex8.html)
+ * [contourdata函数下载](https://ww2.mathworks.cn/matlabcentral/fileexchange/38863-extract-contour-data-from-contour-matrix-c)
