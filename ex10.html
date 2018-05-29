@@ -1,0 +1,299 @@
+<h1 id="第十次习题">第十次习题</h1>
+<h2 id="木杆的运动方程">木杆的运动方程</h2>
+<p>第一阶段，未脱离墙面： <br /><span class="math display">$$
+T=\frac{1}{2}m(\dot{x}_C^2+\dot{y}_C^2)+\frac{1}{2}I\dot{\theta}^2
+$$</span><br /> <br /><span class="math display">$$
+=\frac{1}{2}m\left\{\left[\frac{\text{d}(l\cos{\theta})}{\text{d}t}\right]^2+\left[\frac{\text{d}(l\sin{\theta})}{\text{d}t}\right]^2\right\}+\frac{ml^2}{6}\dot{\theta}^2
+$$</span><br /> <br /><span class="math display">$$
+=\frac{ml^2}{2}\dot{\theta}^2+\frac{ml^2}{6}\dot{\theta}^2=\frac{2ml^2}{3}\dot{\theta}^2;
+$$</span><br /> <br /><span class="math display"><em>V</em> = <em>m</em><em>g</em><em>l</em>sin<em>θ</em>;</span><br /> <br /><span class="math display">$$
+L=T-V=\frac{2ml^2}{3}\dot{\theta}^2-mgl\sin{\theta}.
+$$</span><br /> <br /><span class="math display">$$
+p=\frac{\partial L}{\partial \dot{\theta}}=\frac{4ml^2}{3}\dot{\theta};
+$$</span><br /> <br /><span class="math display">$$
+\dot{p}=\frac{\partial L}{\partial\theta}\Rightarrow\frac{4ml^2}{3}\ddot{\theta}=-mgl\cos{\theta}\Rightarrow\ddot{\theta}=-\frac{3g}{4l}\cos{\theta}
+$$</span><br /> 结合约束条件 <br /><span class="math display">$$
+x_C=\frac{l\cos{\theta}}{2},y_C=\frac{l\sin{\theta}}{2},
+$$</span><br /> 求导可以得到 <br /><span class="math display">$$
+\ddot{x}_C=-l\dot{\theta}^2\cos{\theta}+\frac{3}{4}g\sin{\theta}\cos{\theta},\ddot{y}_C=-l\dot{\theta}^2\sin{\theta}-\frac{3}{4}g\cos^2{\theta}.
+$$</span><br /> 第二阶段，左端脱离墙面： <br /><span class="math display">$$
+T=\frac{1}{2}m(\dot{x}_C^2+\dot{y}_C^2)+\frac{1}{2}I\dot{\theta}^2
+$$</span><br /> <br /><span class="math display">$$
+=\frac{1}{2}m\left\{\dot{x}_C^2+\left[\frac{\text{d}(l\sin{\theta})}{\text{d}t}\right]^2\right\}+\frac{ml^2}{6}\dot{\theta}^2
+$$</span><br /> <br /><span class="math display">$$
+=\frac{1}{2}m\dot{x}_C^2+\frac{ml^2}{2}\dot{\theta}^2\cos^2{\theta}+\frac{ml^2}{6}\dot{\theta}^2;
+$$</span><br /> <br /><span class="math display"><em>V</em> = <em>m</em><em>g</em><em>l</em>sin<em>θ</em>;</span><br /> <br /><span class="math display">$$
+L=T-V=\frac{1}{2}m\dot{x}_C^2+\frac{ml^2}{2}\dot{\theta}^2\cos^2{\theta}+\frac{ml^2}{6}\dot{\theta}^2-mgl\sin{\theta}.
+$$</span><br /> <br /><span class="math display">$$
+\frac{\text{d}}{\text{d}t}\left(\frac{\partial L}{\partial \dot{x}_C}\right)=\frac{\partial L}{\partial x_C}\Rightarrow\ddot{x}_C=0;
+$$</span><br /> <br /><span class="math display">$$
+\frac{\text{d}}{\text{d}t}\left(\frac{\partial L}{\partial \dot{\theta}}\right)=\frac{\partial L}{\partial \theta},
+$$</span><br /> <br /><span class="math display">$$
+\Rightarrow ml^2\left(\ddot{\theta}\cos^2{\theta}-2\dot{\theta}^2\cos{\theta}\sin{\theta}\right)+\frac{ml^2}{3}\ddot{\theta}=-ml^2\dot{\theta}\cos{\theta}\sin{\theta}-mgl\cos{\theta},
+$$</span><br /> <br /><span class="math display">$$
+\Rightarrow\left(l\cos^2{\theta}+\frac{l}{3}\right)\ddot{\theta}=2l\dot{\theta}^2\cos{\theta}\sin{\theta}-l\dot{\theta}^2\cos{\theta}\sin{\theta}-g\cos{\theta}
+$$</span><br /> <br /><span class="math display">$$
+\ddot{\theta}=\frac{l\dot{\theta}^2\sin{\theta}\cos{\theta}-g\cos{\theta}}{\dfrac{l}{3}+l\cos^2{\theta}}
+$$</span><br /> 代入约束条件 <br /><span class="math display">$$
+y_C=\frac{l\sin{\theta}}{2}
+$$</span><br /> 求导可得 <br /><span class="math display">$$
+\ddot{y}_C=\frac{l\dot{\theta}^2\sin{\theta}\cos^2{\theta}-g\cos^2{\theta}}{\dfrac{l}{3}+l\cos^2{\theta}}-l\dot{\theta}^2\sin{\theta}.
+$$</span><br /> 第五章习题 ========== 行星运动模拟 ------------ 为满足题目要求（3），只能用牛顿第二定律按极坐标求解或用Binet公式求轨道，再化为Cartesian坐标，按照对称性绘出图形。 <br /><span class="math display">$$
+\ddot{r}-r\dot{\theta}^2=-\frac{GM}{r^2},
+$$</span><br /> <br /><span class="math display">$$
+r\ddot{\theta}+2\dot{r}\dot{\theta}=0;
+$$</span><br /> <br /><span class="math display">$$
+y=(r,\dot{r},\theta,\dot{\theta});\dot{y}=\left(y_2,y_1y_4^2-\frac{GM}{y_1^2},y_4,-\frac{2y_2y_4}{y_1}\right).
+$$</span><br /> 函数文件<code>orbit.m</code>:</p>
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab">        function hd=orbit(E,L,color,textpos)
+            G=<span class="fl">1</span>;M=<span class="fl">5e3</span>;m=<span class="fl">1</span>;
+            r0=L^<span class="fl">2</span>/(m*(((G^<span class="fl">2</span>*M^<span class="fl">2</span>*m^<span class="fl">3</span> + <span class="fl">2</span>*E*L^<span class="fl">2</span>)/m)^(<span class="fl">1</span>/<span class="fl">2</span>) + G*M*m));v0=L/r0/m;
+            rd0=<span class="fl">0</span>;theta0=<span class="fl">0</span>;thetad0=v0/r0;
+            f=@(t,y)[y(<span class="fl">2</span>);y(<span class="fl">1</span>)*y(<span class="fl">4</span>)^<span class="fl">2</span>-G*M/(y(<span class="fl">1</span>)^<span class="fl">2</span>);y(<span class="fl">4</span>);-<span class="fl">2</span>*y(<span class="fl">2</span>)*y(<span class="fl">4</span>)/y(<span class="fl">1</span>)];
+            [t,y]=ode45(f,<span class="fl">0</span>:<span class="fl">1</span>:<span class="fl">500</span>,[r0,rd0,theta0,thetad0]);
+            [x,y]=pol2cart(y(:,<span class="fl">3</span>),y(:,<span class="fl">1</span>));
+            plot(x,y,color);hold on;
+            plot(x,-y,color);hold off;
+            text(x(textpos),y(textpos),strcat(<span class="st">&#39;$E$=&#39;</span>,num2str(E),<span class="st">&#39;,&#39;</span>,<span class="st">&#39;$L$=&#39;</span>,num2str(L)),<span class="st">&#39;Interpreter&#39;</span>,<span class="st">&#39;latex&#39;</span>);
+            hd=gca;
+        end</code></pre></div>
+<p>作图脚本：</p>
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab">        <span class="co">%This program sets G=1, M=5e3 and m=1 for simplicity.</span>
+        figure;
+            orbit(-<span class="fl">5</span>,<span class="fl">1200</span>,<span class="st">&#39;r&#39;</span>,<span class="fl">300</span>);hold on;
+            orbit(<span class="fl">0</span>,<span class="fl">1200</span>,<span class="st">&#39;g&#39;</span>,<span class="fl">300</span>);hold on;
+            orbit(<span class="fl">5</span>,<span class="fl">1200</span>,<span class="st">&#39;b&#39;</span>,<span class="fl">300</span>);hold on;
+            <span class="co">%h=copyobj(allchild(gca),gca);rotate(h,[1,0,0],180,[0 0 0]);hold on;    %Just half slower.</span>
+            plot(<span class="fl">0</span>,<span class="fl">0</span>,<span class="st">&#39;y*&#39;</span>);axis equal;axis off;
+            title(<span class="st">&#39;Energy Variety&#39;</span>,<span class="st">&#39;Interpreter&#39;</span>,<span class="st">&#39;latex&#39;</span>);
+            saveas(gcf,<span class="st">&#39;EV.pdf&#39;</span>);
+        hold off;
+        figure;
+            orbit(-<span class="fl">5</span>,<span class="fl">1200</span>,<span class="st">&#39;r&#39;</span>,<span class="fl">50</span>);hold on;
+            orbit(-<span class="fl">5</span>,<span class="fl">1000</span>,<span class="st">&#39;g&#39;</span>,<span class="fl">100</span>);hold on;
+            orbit(-<span class="fl">5</span>,<span class="fl">1400</span>,<span class="st">&#39;b&#39;</span>,<span class="fl">150</span>);hold on;
+            plot(<span class="fl">0</span>,<span class="fl">0</span>,<span class="st">&#39;y*&#39;</span>);axis equal;axis off;
+            title(<span class="st">&#39;Angular Momentum Variety&#39;</span>,<span class="st">&#39;Interpreter&#39;</span>,<span class="st">&#39;latex&#39;</span>);
+            saveas(gcf,<span class="st">&#39;AMV.pdf&#39;</span>);
+        hold off;</code></pre></div>
+<div class="figure">
+<img src="https://wang-guosheng.github.io/CompPhyExs/figs/1527557465686.png" alt="1527557465686" />
+<p class="caption">1527557465686</p>
+</div>
+<div class="figure">
+<img src="https://wang-guosheng.github.io/CompPhyExs/figs/1527557521411.png" alt="1527557521411" />
+<p class="caption">1527557521411</p>
+</div>
+<h2 id="α-粒子散射模拟">α 粒子散射模拟</h2>
+<p><br /><span class="math display">$$
+\ddot{r}-r\dot{\theta}^2=\frac{k}{r^2},
+$$</span><br /> <br /><span class="math display">$$
+r\ddot{\theta}+2\dot{r}\dot{\theta}=0;
+$$</span><br /> <br /><span class="math display">$$
+y=(r,\dot{r},\theta,\dot{\theta});\dot{y}=\left(y_2,y_1y_4^2+\frac{k}{y_1^2},y_4,-\frac{2y_2y_4}{y_1}\right).
+$$</span><br /> <br /><span class="math display">$$
+E,L=const.\Rightarrow v_0=\sqrt{\frac{k^2}{v^2b^2}+v^2}-\frac{k}{vb},r_0=\frac{vb}{v_0};
+$$</span><br /> <br /><span class="math display">$$
+\phi=\arctan{\frac{2bE}{k}}=\arctan{\frac{mv^2b}{k}}.
+$$</span><br /> 函数文件<code>orbit.m</code>:</p>
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab">        function hd=orbit(v,b,color,textpos)
+            k=<span class="fl">5e3</span>;m=<span class="fl">1</span>;
+            temp=k/v/b;v0=sqrt(temp^<span class="fl">2</span>+v^<span class="fl">2</span>)-temp;r0=v*b/v0;
+            rd0=<span class="fl">0</span>;theta0=<span class="fl">0</span>;thetad0=v0/r0;
+            f=@(t,y)[y(<span class="fl">2</span>);y(<span class="fl">1</span>)*y(<span class="fl">4</span>)^<span class="fl">2</span>+k/(y(<span class="fl">1</span>)^<span class="fl">2</span>);y(<span class="fl">4</span>);-<span class="fl">2</span>*y(<span class="fl">2</span>)*y(<span class="fl">4</span>)/y(<span class="fl">1</span>)];
+            [t,y]=ode45(f,<span class="fl">20</span>*(<span class="fl">0</span>:<span class="fl">0.1</span>:<span class="fl">50</span>)/v,[r0,rd0,theta0,thetad0]);
+            [x,y]=pol2cart(y(:,<span class="fl">3</span>),y(:,<span class="fl">1</span>));
+            p1=plot(x,y,color);hold on;
+            p2=plot(x,-y,color);
+            t=text(x(textpos),y(textpos),strcat(<span class="st">&#39;$v$=&#39;</span>,num2str(v),<span class="st">&#39;,&#39;</span>,<span class="st">&#39;$b$=&#39;</span>,num2str(b)),<span class="st">&#39;Interpreter&#39;</span>,<span class="st">&#39;latex&#39;</span>);
+            rotate(p1,[<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">1</span>],<span class="fl">180</span>*atan(m*v^<span class="fl">2</span>*b/k)/pi,[<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>]);
+            rotate(p2,[<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">1</span>],<span class="fl">180</span>*atan(m*v^<span class="fl">2</span>*b/k)/pi,[<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>]);
+            rotate(t,[<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">1</span>],<span class="fl">180</span>*atan(m*v^<span class="fl">2</span>*b/k)/pi,[<span class="fl">0</span>,<span class="fl">0</span>,<span class="fl">0</span>]);
+            hold off;hd=gca;
+        end</code></pre></div>
+<p>绘图脚本：</p>
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab">        <span class="co">%This program sets k=5e3 and m=1 for simplicity.</span>
+        figure;
+            orbit(<span class="fl">10</span>,<span class="fl">200</span>,<span class="st">&#39;r&#39;</span>,<span class="fl">500</span>);hold on;
+            orbit(<span class="fl">10</span>,<span class="fl">100</span>,<span class="st">&#39;g&#39;</span>,<span class="fl">500</span>);hold on;
+            orbit(<span class="fl">10</span>,<span class="fl">50</span>,<span class="st">&#39;b&#39;</span>,<span class="fl">500</span>);hold on;
+            orbit(<span class="fl">10</span>,<span class="fl">25</span>,<span class="st">&#39;y&#39;</span>,<span class="fl">500</span>);hold on;
+            plot(<span class="fl">0</span>,<span class="fl">0</span>,<span class="st">&#39;ko&#39;</span>);text(-<span class="fl">50</span>,-<span class="fl">50</span>,<span class="st">&#39;nuclues&#39;</span>,<span class="st">&#39;Interpreter&#39;</span>,<span class="st">&#39;latex&#39;</span>);axis equal;axis off;
+            title(<span class="st">&#39;$\alpha$ Particle Scattering: Aiming Distance Variety&#39;</span>,<span class="st">&#39;Interpreter&#39;</span>,<span class="st">&#39;latex&#39;</span>);
+            saveas(gcf,<span class="st">&#39;ADV.pdf&#39;</span>);
+        hold off;
+        figure;
+            orbit(<span class="fl">40</span>,<span class="fl">50</span>,<span class="st">&#39;y&#39;</span>,<span class="fl">500</span>);hold on;
+            orbit(<span class="fl">20</span>,<span class="fl">50</span>,<span class="st">&#39;r&#39;</span>,<span class="fl">500</span>);hold on;
+            orbit(<span class="fl">10</span>,<span class="fl">50</span>,<span class="st">&#39;g&#39;</span>,<span class="fl">500</span>);hold on;
+            orbit(<span class="fl">5</span>,<span class="fl">50</span>,<span class="st">&#39;b&#39;</span>,<span class="fl">500</span>);hold on;
+            plot(<span class="fl">0</span>,<span class="fl">0</span>,<span class="st">&#39;ko&#39;</span>);text(-<span class="fl">50</span>,-<span class="fl">50</span>,<span class="st">&#39;nuclues&#39;</span>,<span class="st">&#39;Interpreter&#39;</span>,<span class="st">&#39;latex&#39;</span>);axis equal;axis off;
+            title(<span class="st">&#39;$\alpha$ Particle Scattering: Initial Velocity Variety&#39;</span>,<span class="st">&#39;Interpreter&#39;</span>,<span class="st">&#39;latex&#39;</span>);
+            saveas(gcf,<span class="st">&#39;IVV.pdf&#39;</span>);
+        hold off;</code></pre></div>
+<div class="figure">
+<img src="https://wang-guosheng.github.io/CompPhyExs/figs/1527557560358.png" alt="1527557560358" />
+<p class="caption">1527557560358</p>
+</div>
+<div class="figure">
+<img src="https://wang-guosheng.github.io/CompPhyExs/figs/1527557598041.png" alt="1527557598041" />
+<p class="caption">1527557598041</p>
+</div>
+<h2 id="行星进动模拟">行星进动模拟</h2>
+<p><br /><span class="math display">$$
+\ddot{r}-r\dot{\theta}^2=-\frac{GM}{r^2}-\frac{3GMr_0^2v_0^2}{c^2r^4},
+$$</span><br /> <br /><span class="math display">$$
+r\ddot{\theta}+2\dot{r}\dot{\theta}=0;
+$$</span><br /> <br /><span class="math display">$$
+y=(r,\dot{r},\theta,\dot{\theta});\dot{y}=\left(y_2,y_1y_4^2-\frac{GM}{y_1^2}-\frac{3GMr_0^2v_0^2}{c^2y_1^4},y_4,-\frac{2y_2y_4}{y_1}\right).
+$$</span><br /> 注意到此时轨道不对称，应修改原有程序。 函数文件<code>orbit.m</code>:</p>
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab">        function hd=orbit(E,L,color,textpos)
+            G=<span class="fl">1</span>;M=<span class="fl">5e3</span>;m=<span class="fl">1</span>;
+            r0=L^<span class="fl">2</span>/(m*(((G^<span class="fl">2</span>*M^<span class="fl">2</span>*m^<span class="fl">3</span> + <span class="fl">2</span>*E*L^<span class="fl">2</span>)/m)^(<span class="fl">1</span>/<span class="fl">2</span>) + G*M*m));v0=L/r0/m;c=<span class="fl">3.67e13</span>;
+            rd0=<span class="fl">0</span>;theta0=<span class="fl">0</span>;thetad0=v0/r0;
+            f=@(t,y)[y(<span class="fl">2</span>);y(<span class="fl">1</span>)*y(<span class="fl">4</span>)^<span class="fl">2</span>-G*M/(y(<span class="fl">1</span>)^<span class="fl">2</span>)-<span class="fl">3</span>*G*M*r0^<span class="fl">2</span>*v0^<span class="fl">2</span>/(c*y(<span class="fl">1</span>)^<span class="fl">2</span>)^<span class="fl">2</span>;y(<span class="fl">4</span>);-<span class="fl">2</span>*y(<span class="fl">2</span>)*y(<span class="fl">4</span>)/y(<span class="fl">1</span>)];
+            [t,y]=ode45(f,<span class="fl">0</span>:<span class="fl">1</span>:<span class="fl">100000</span>,[r0,rd0,theta0,thetad0]);
+            [x,y]=pol2cart(y(:,<span class="fl">3</span>),y(:,<span class="fl">1</span>));
+            plot(x,y,color);
+            text(x(textpos),y(textpos),strcat(<span class="st">&#39;$E$=&#39;</span>,num2str(E),<span class="st">&#39;,&#39;</span>,<span class="st">&#39;$L$=&#39;</span>,num2str(L)),<span class="st">&#39;Interpreter&#39;</span>,<span class="st">&#39;latex&#39;</span>);
+            hd=gca;
+        end</code></pre></div>
+<p>作图脚本：</p>
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab">        <span class="co">%This program sets G=1, M=5e3 and m=1 for simplicity, the speed of light yield 3.67e13 by proportion.</span>
+        figure;
+            orbit(-<span class="fl">5</span>,<span class="fl">1200</span>,<span class="st">&#39;r&#39;</span>,<span class="fl">300</span>);hold on;
+            plot(<span class="fl">0</span>,<span class="fl">0</span>,<span class="st">&#39;y*&#39;</span>);axis equal;axis off;
+            title(<span class="st">&#39;Precession&#39;</span>,<span class="st">&#39;Interpreter&#39;</span>,<span class="st">&#39;latex&#39;</span>);
+            saveas(gcf,<span class="st">&#39;prc.pdf&#39;</span>);
+        hold off;</code></pre></div>
+<div class="figure">
+<img src="https://wang-guosheng.github.io/CompPhyExs/figs/1527557645877.png" alt="1527557645877" />
+<p class="caption">1527557645877</p>
+</div>
+<h2 id="弹簧弹球模拟">弹簧弹球模拟</h2>
+<p>运动微分方程： <br /><span class="math display">$$
+\ddot{y}_1=-g,
+$$</span><br /> <br /><span class="math display">$$
+\ddot{y}_2=-g-k(y_2-l_0).
+$$</span><br /> <br /><span class="math display">$$
+\Rightarrow y=(y_1,y_2,y_3,y_4)=(y_1,\dot{y}_1,y_2,\dot{y}_2),\dot{y}=(y_2,-g,y_4,-g-k(y_3-l_0)).
+$$</span><br /> 运动开始时， <br /><span class="math display">$$
+y_1|_{t=0}=h_1,y_2|_{t=0}=h_2=l_0-\frac{mg}{k};
+$$</span><br /> 碰撞过程： <br /><span class="math display">$$
+\frac{1}{2}m_1v_1^2+\frac{1}{2}m_2v_2^2=\frac{1}{2}m_1{v'}_1^2+\frac{1}{2}m_2{v'}_2^2,
+$$</span><br /> <br /><span class="math display"><em>m</em><sub>1</sub><em>v</em><sub>1</sub> + <em>m</em><sub>2</sub><em>v</em><sub>2</sub> = <em>m</em><sub>1</sub><em>v</em>′<sub>1</sub> + <em>m</em><sub>2</sub><em>v</em>′<sub>2</sub>;</span><br /> <br /><span class="math display">$$
+\Rightarrow v_1=\frac{(m_1-m_2)v_1+2m_2v_2}{m_1+m_2},v_1=\frac{(m_2-m_1)v_2+2m_1v_1}{m_2+m_1};
+$$</span><br /> 函数文件<code>circ.m</code>:</p>
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab">        function [ output_args ] = circ( x,y,r,color )
+        <span class="co">%CIRC draw a circle over (x,y)</span>
+        <span class="co">%   </span>
+        phi=<span class="fl">0</span>:pi/<span class="fl">20</span>:<span class="fl">2</span>*pi;X=x+r.*cos(phi);Y=y+r.*sin(phi)+r;
+        plot(X,Y,color);
+        end</code></pre></div>
+<p>函数文件<code>spring.m</code>:</p>
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab">        function [ output_args ] = spring( x0,bot,top,n,wid )
+        <span class="co">%SPRING </span>
+        <span class="co">%   </span>
+        T=(top-bot)/n;y=bot:<span class="fl">0.1</span>:top;x=x0+wid/<span class="fl">2</span>.*sin(<span class="fl">2</span>*pi/T*y);
+        plot(x,y,<span class="st">&#39;Color&#39;</span>,[<span class="fl">.9</span>,<span class="fl">.7</span>,<span class="fl">.3</span>]);
+        end</code></pre></div>
+<p>函数文件<code>Bouncing_Ball_on_a_Spring.m</code>:</p>
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab">        function [T,Y]=Bouncing\_Ball\_on\_a\_Spring
+            g=<span class="fl">9.8</span>;k=<span class="fl">10</span>;l0=<span class="fl">10</span>;m1=<span class="fl">1</span>;m2=<span class="fl">1</span>;
+            tstart=<span class="fl">0</span>;tfinal=<span class="fl">50</span>;y0=[<span class="fl">20</span>,<span class="fl">0</span>,l0-m2*g/k,<span class="fl">0</span>];refine=<span class="fl">5</span>;
+            options=odeset(<span class="st">&#39;Events&#39;</span>,@events,<span class="st">&#39;Outputsel&#39;</span>,[<span class="fl">1</span>,<span class="fl">3</span>],<span class="st">&#39;Refine&#39;</span>,refine);<span class="co">%&#39;OutputFcn&#39;,@odeplot</span>
+            f=@(t,y)[y(<span class="fl">2</span>);-g;y(<span class="fl">4</span>);-g-k*(y(<span class="fl">3</span>)-l0)];
+            [T,Y]=deal([],[]);
+            for i=<span class="fl">1</span>:<span class="fl">40</span>
+                [t,y]=ode45(f,[tstart,tfinal],y0,options);
+                if~ishold
+                    hold on;
+                end
+                nt=length(t);
+                [y1,y2,v1,v2]=deal(y(nt,<span class="fl">1</span>),y(nt,<span class="fl">3</span>),y(nt,<span class="fl">2</span>),y(nt,<span class="fl">4</span>));
+                y0(<span class="fl">1</span>)=y1;
+                y0(<span class="fl">2</span>)=((m1-m2)*v1+<span class="fl">2</span>*m2*v2)/(m1+m2);
+                y0(<span class="fl">3</span>)=y2;
+                y0(<span class="fl">4</span>)=((m2-m1)*v2+<span class="fl">2</span>*m1*v1)/(m2+m1);
+                options=odeset(options,<span class="st">&#39;InitialStep&#39;</span>,t(nt)-t(nt-refine),<span class="st">&#39;MaxStep&#39;</span>,t(nt)-t(<span class="fl">1</span>));
+                tstart=t(nt);
+                [T,Y]=deal([T;t],[Y;y]);
+            end
+            function [value,isterminal,direction]=events(t,y)
+                value=y(<span class="fl">1</span>)-y(<span class="fl">3</span>);isterminal=<span class="fl">1</span>;direction=-<span class="fl">1</span>;
+            end
+        end</code></pre></div>
+<p>作图脚本：</p>
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab">        [t,y]=Bouncing\_Ball\_on\_a\_Spring;<span class="co">%40 collisions were ploted</span>
+        [y1,y2]=deal(y(:,<span class="fl">1</span>),y(:,<span class="fl">3</span>));
+        set(gca,<span class="st">&#39;xlim&#39;</span>,[<span class="fl">0</span>,<span class="fl">50</span>],<span class="st">&#39;ylim&#39;</span>,[<span class="fl">0</span>,<span class="fl">25</span>]);hold on;
+        plot(t,y1,<span class="st">&#39;b&#39;</span>);hold on;
+        plot(t,y2,<span class="st">&#39;r&#39;</span>);
+        xlabel(<span class="st">&#39;time&#39;</span>,<span class="st">&#39;Interpreter&#39;</span>,<span class="st">&#39;LaTeX&#39;</span>);ylabel(<span class="st">&#39;height&#39;</span>,<span class="st">&#39;Interpreter&#39;</span>,<span class="st">&#39;LaTeX&#39;</span>);title(<span class="st">&#39;Ball Bouncing on a Spring&#39;</span>,<span class="st">&#39;Interpreter&#39;</span>,<span class="st">&#39;LaTeX&#39;</span>);
+        hold off;saveas(gcf,<span class="st">&#39;bbs.pdf&#39;</span>);
+        figure
+            fps=<span class="fl">30</span>;set(gca,<span class="st">&#39;box&#39;</span>,<span class="st">&#39;off&#39;</span>,<span class="st">&#39;xtick&#39;</span>,[],<span class="st">&#39;ytick&#39;</span>,[]);
+            m=moviein(fps*t(end));
+            for Ord=<span class="fl">1</span>:fps*t(end)
+                [minVal,ord]=min(abs(t-Ord/fps));
+                circ(<span class="fl">1</span>,y1(ord),<span class="fl">.5</span>,<span class="st">&#39;r&#39;</span>);hold on;plot([<span class="fl">0</span>,<span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">0</span>,<span class="fl">0</span>],[y2(ord),y2(ord),y2(ord)-<span class="fl">.2</span>,y2(ord)-<span class="fl">.2</span>,y2(ord)],<span class="st">&#39;b&#39;</span>);spring(<span class="fl">1</span>,<span class="fl">0</span>,y2(ord),<span class="fl">12</span>,<span class="fl">2</span>);axis equal;axis([<span class="fl">0</span>,<span class="fl">2</span>,-<span class="fl">1</span>,<span class="fl">25</span>]);axis off;hold off;
+                patch([<span class="fl">0</span> <span class="fl">2</span> <span class="fl">2</span> <span class="fl">0</span>],[<span class="fl">0</span> <span class="fl">0</span> -<span class="fl">.5</span> -<span class="fl">.5</span>],<span class="st">&#39;blue&#39;</span>);
+                m(:,Ord)=getframe;
+            end
+        v=VideoWriter(<span class="st">&#39;Bouncing\_Ball\_on\_a\_Spring.avi&#39;</span>);
+        open(v);writeVideo(v,m);close(v);</code></pre></div>
+<div class="figure">
+<img src="https://wang-guosheng.github.io/CompPhyExs/figs/1527557745261.png" alt="1527557745261" />
+<p class="caption">1527557745261</p>
+</div>
+<p><a href="https://wang-guosheng.github.io/CompPhyExs/Bouncing_Ball_on_a_Spring.avi">视频</a></p>
+<p>水平情况：</p>
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab">        function [T,Y]=Bouncing_Ball_on_a_Spring_Horizontal
+            g=<span class="fl">9.8</span>;k=<span class="fl">10</span>;l0=<span class="fl">10</span>;m1=<span class="fl">1</span>;m2=<span class="fl">1</span>;
+            tstart=<span class="fl">0</span>;tfinal=<span class="fl">50</span>;y0=[<span class="fl">20</span>,-<span class="fl">2</span>,l0,<span class="fl">0</span>];refine=<span class="fl">5</span>;
+            options=odeset(<span class="st">&#39;Events&#39;</span>,@events,<span class="st">&#39;Outputsel&#39;</span>,[<span class="fl">1</span>,<span class="fl">3</span>],<span class="st">&#39;Refine&#39;</span>,refine);<span class="co">%&#39;OutputFcn&#39;,@odeplot</span>
+            f=@(t,y)[y(<span class="fl">2</span>);<span class="fl">0</span>;y(<span class="fl">4</span>);-k*(y(<span class="fl">3</span>)-l0)];
+            [T,Y]=deal([],[]);
+            for i=<span class="fl">1</span>:<span class="fl">3</span>
+                [t,y]=ode45(f,[tstart,tfinal],y0,options);
+                if~ishold
+                    hold on;
+                end
+                nt=length(t);
+                [y1,y2,v1,v2]=deal(y(nt,<span class="fl">1</span>),y(nt,<span class="fl">3</span>),y(nt,<span class="fl">2</span>),y(nt,<span class="fl">4</span>));
+                y0(<span class="fl">1</span>)=y1;
+                y0(<span class="fl">2</span>)=((m1-m2)*v1+<span class="fl">2</span>*m2*v2)/(m1+m2);
+                y0(<span class="fl">3</span>)=y2;
+                y0(<span class="fl">4</span>)=((m2-m1)*v2+<span class="fl">2</span>*m1*v1)/(m2+m1);
+                options=odeset(options,<span class="st">&#39;InitialStep&#39;</span>,t(nt)-t(nt-refine),<span class="st">&#39;MaxStep&#39;</span>,t(nt)-t(<span class="fl">1</span>));
+                tstart=t(nt);
+                [T,Y]=deal([T;t],[Y;y]);
+            end
+            function [value,isterminal,direction]=events(t,y)
+                value=y(<span class="fl">1</span>)-y(<span class="fl">3</span>);isterminal=<span class="fl">1</span>;direction=-<span class="fl">1</span>;
+            end
+        end</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode matlab"><code class="sourceCode matlab">        [t,y]=Bouncing_Ball_on_a_Spring_Horizontal;<span class="co">%40 collisions were ploted</span>
+        [y1,y2]=deal(y(:,<span class="fl">1</span>),y(:,<span class="fl">3</span>));
+        set(gca,<span class="st">&#39;xlim&#39;</span>,[<span class="fl">0</span>,<span class="fl">15</span>],<span class="st">&#39;ylim&#39;</span>,[<span class="fl">0</span>,<span class="fl">25</span>]);hold on;
+        plot(t,y1,<span class="st">&#39;b&#39;</span>);hold on;
+        plot(t,y2,<span class="st">&#39;r&#39;</span>);
+        xlabel(<span class="st">&#39;time&#39;</span>,<span class="st">&#39;Interpreter&#39;</span>,<span class="st">&#39;LaTeX&#39;</span>);ylabel(<span class="st">&#39;height&#39;</span>,<span class="st">&#39;Interpreter&#39;</span>,<span class="st">&#39;LaTeX&#39;</span>);title(<span class="st">&#39;Ball Bouncing on a Spring&#39;</span>,<span class="st">&#39;Interpreter&#39;</span>,<span class="st">&#39;LaTeX&#39;</span>);
+        hold off;saveas(gcf,<span class="st">&#39;bbsH.pdf&#39;</span>);
+        figure
+            fps=<span class="fl">30</span>;set(gca,<span class="st">&#39;box&#39;</span>,<span class="st">&#39;off&#39;</span>,<span class="st">&#39;xtick&#39;</span>,[],<span class="st">&#39;ytick&#39;</span>,[]);
+            m=moviein(fps*t(end));
+            <span class="co">%epsilon=mean(t(2:end)-t(1:end-1))/3;start=1;tic</span>
+            for Ord=<span class="fl">1</span>:fps*t(end)
+                [minVal,ord]=min(abs(t-Ord/fps));
+                circ(<span class="fl">1</span>,y1(ord),<span class="fl">.5</span>,<span class="st">&#39;r&#39;</span>);hold on;plot([<span class="fl">0</span>,<span class="fl">2</span>,<span class="fl">2</span>,<span class="fl">0</span>,<span class="fl">0</span>],[y2(ord),y2(ord),y2(ord)-<span class="fl">.2</span>,y2(ord)-<span class="fl">.2</span>,y2(ord)],<span class="st">&#39;b&#39;</span>);spring(<span class="fl">1</span>,<span class="fl">0</span>,y2(ord),<span class="fl">12</span>,<span class="fl">2</span>);axis equal;axis([<span class="fl">0</span>,<span class="fl">2</span>,-<span class="fl">1</span>,<span class="fl">25</span>]);axis off;hold off;
+                patch([<span class="fl">0</span> <span class="fl">2</span> <span class="fl">2</span> <span class="fl">0</span>],[<span class="fl">0</span> <span class="fl">0</span> -<span class="fl">.5</span> -<span class="fl">.5</span>],<span class="st">&#39;blue&#39;</span>);
+                m(:,Ord)=getframe;
+            end
+        v=VideoWriter(<span class="st">&#39;Bouncing_Ball_on_a_SpringH.avi&#39;</span>);
+        open(v);writeVideo(v,m);close(v);</code></pre></div>
+<div class="figure">
+<img src="https://wang-guosheng.github.io/CompPhyExs/figs/1527557798090.png" alt="1527557773826" />
+<p class="caption">1527557773826</p>
+</div>
+<p><a href="https://wang-guosheng.github.io/CompPhyExs/Bouncing_Ball_on_a_SpringH.avi">视频</a></p>
