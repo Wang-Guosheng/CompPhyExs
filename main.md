@@ -11,6 +11,12 @@
 | 第一次和第二次作业 | [在线查看](https://wang-guosheng.github.io/CompPhyExs/ex1ex2.html)/[下载Live Script](https://wang-guosheng.github.io/CompPhyExs/ex1ex2.mlx)/[下载PDF](https://wang-guosheng.github.io/CompPhyExs/ex1ex2.pdf) |网页版答案是MATLAB2017a(win64版本)运行的结果。不同版本下呈现结果可能稍有不同。|
 | 第三次作业     | [在线查看](https://wang-guosheng.github.io/CompPhyExs/ex3.html)/[下载Live Script](https://wang-guosheng.github.io/CompPhyExs/ex3.mlx)/[下载PDF](https://wang-guosheng.github.io/CompPhyExs/ex3.pdf) ||
 | 第四次作业     | [在线查看](https://wang-guosheng.github.io/CompPhyExs/ex4.html)/[下载Live Script](https://wang-guosheng.github.io/CompPhyExs/ex4.mlx)/[下载PDF](https://wang-guosheng.github.io/CompPhyExs/ex4.pdf) ||
+| 第五次作业 | [在线查看](https://wang-guosheng.github.io/CompPhyExs/ex5.html)/[下载脚本](https://wang-guosheng.github.io/CompPhyExs/ex5.m) ||
+| 第六次作业 |  |（实时脚本试验略）|
+| 第七次作业 | [在线查看](https://wang-guosheng.github.io/CompPhyExs/ex7display.html)/[下载Live Script](https://wang-guosheng.github.io/CompPhyExs/ex7.mlx)/[下载PDF](https://wang-guosheng.github.io/CompPhyExs/ex7.pdf) ||
+| 第八次作业 | [在线查看](https://wang-guosheng.github.io/CompPhyExs/ex8display.html)/[下载Live Script](https://wang-guosheng.github.io/CompPhyExs/ex8.mlx)/[下载PDF](https://wang-guosheng.github.io/CompPhyExs/ex8.pdf) ||
+| 第九次作业 |  |（参数设置和误差推导）|
+| 第十次作业 | [在线查看](https://wang-guosheng.github.io/CompPhyExs/ex10.html) ||
 
 #### 关于`Live Script`的说明：
 

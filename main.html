@@ -2,9 +2,11 @@
 <html>
 <head>
 <meta charset='UTF-8'><meta name='viewport' content='width=device-width initial-scale=1'>
-<title>计算物理基础习题解答</title><link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}#write, body { height: auto; }
+<title>计算物理基础习题</title><link href='https://fonts.googleapis.com/css?family=Open+Sans:400italic,700italic,700,400&subset=latin,latin-ext' rel='stylesheet' type='text/css' /><style type='text/css'>html {overflow-x: initial !important;}#write, body { height: auto; }
 #write, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write ol, #write p, #write ul { position: relative; }
 #write, #write h1, #write h2, #write h3, #write h4, #write h5, #write h6, #write p, #write pre { width: inherit; }
+h1, h2, h3, h4, h5, h6, tr { break-inside: avoid; }
+#write, pre { white-space: pre-wrap; }
 .CodeMirror, .md-fences, table { text-align: left; }
 .md-reset, a:active, a:hover { outline: 0px; }
 .md-reset, .md-toc-item a { text-decoration: none; }
@@ -12,8 +14,11 @@
 :root { --bg-color:#ffffff; --text-color:#333333; }
 html { font-size: 14px; background-color: var(--bg-color); color: var(--text-color); font-family: "Helvetica Neue", Helvetica, Arial, sans-serif; -webkit-font-smoothing: antialiased; }
 body { margin: 0px; padding: 0px; bottom: 0px; top: 0px; left: 0px; right: 0px; font-size: 1rem; line-height: 1.42857; overflow-x: hidden; background: inherit; }
+a.url { word-break: break-all; }
 .in-text-selection, ::selection { background: rgb(181, 214, 252); text-shadow: none; }
-#write { margin: 0px auto; word-break: normal; word-wrap: break-word; padding-bottom: 70px; white-space: pre-wrap; overflow-x: visible; }
+#write { margin: 0px auto; word-break: normal; word-wrap: break-word; padding-bottom: 70px; overflow-x: visible; }
+.first-line-indent #write p .md-line { text-indent: 0px; }
+.first-line-indent #write li, .first-line-indent #write p, .first-line-indent #write p .md-line:first-child { text-indent: 2em; }
 .for-image #write { padding-left: 8px; padding-right: 8px; }
 body.typora-export { padding-left: 30px; padding-right: 30px; }
 @media screen and (max-width: 500px) {
@@ -21,30 +26,30 @@ body.typora-export { padding-left: 30px; padding-right: 30px; }
   .CodeMirror-sizer { margin-left: 0px !important; }
   .CodeMirror-gutters { display: none !important; }
 }
-.typora-export #write { margin: 0px auto; }
 #write > blockquote:first-child, #write > div:first-child, #write > ol:first-child, #write > p:first-child, #write > pre:first-child, #write > table:first-child, #write > ul:first-child { margin-top: 30px; }
 #write li > table:first-child { margin-top: -20px; }
 img { max-width: 100%; vertical-align: middle; }
 button, input, select, textarea { color: inherit; font-style: inherit; font-variant: inherit; font-weight: inherit; font-stretch: inherit; font-size: inherit; line-height: inherit; font-family: inherit; }
 input[type="checkbox"], input[type="radio"] { line-height: normal; padding: 0px; }
 *, ::after, ::before { box-sizing: border-box; }
+h1, h2, h3, h4, h5, h6 { break-after: avoid-page; orphans: 2; }
+p { orphans: 4; -webkit-margin-before: 1rem; -webkit-margin-after: 1rem; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
 h1 { font-size: 2rem; }
 h2 { font-size: 1.8rem; }
 h3 { font-size: 1.6rem; }
 h4 { font-size: 1.4rem; }
 h5 { font-size: 1.2rem; }
 h6 { font-size: 1rem; }
-p { -webkit-margin-before: 1rem; -webkit-margin-after: 1rem; -webkit-margin-start: 0px; -webkit-margin-end: 0px; }
-.typora-export p { white-space: normal; }
 .mathjax-block { margin-top: 0px; margin-bottom: 0px; -webkit-margin-before: 0px; -webkit-margin-after: 0px; }
 .hidden { display: none; }
 .md-blockmeta { color: rgb(204, 204, 204); font-weight: 700; font-style: italic; }
 a { cursor: pointer; }
 sup.md-footnote { padding: 2px 4px; background-color: rgba(238, 238, 238, 0.7); color: rgb(85, 85, 85); border-radius: 4px; }
 #write input[type="checkbox"] { cursor: pointer; width: inherit; height: inherit; }
-#write > figure:first-child { margin-top: 16px; }
-figure { overflow-x: auto; margin: -8px 0px 0px -8px; max-width: calc(100% + 16px); padding: 8px; }
-tr { break-inside: avoid; break-after: auto; }
+#write > figure:first-child { margin-top: 2em; }
+figure { overflow-x: auto; margin: 1.2em 0px 0px; max-width: calc(100% + 16px); padding: 0px; }
+figure > table { margin: 0px !important; }
+tr { break-after: auto; }
 thead { display: table-header-group; }
 table { border-collapse: collapse; border-spacing: 0px; width: 100%; overflow: auto; break-inside: auto; }
 .CodeMirror-line, .md-fences { break-inside: avoid; }
@@ -54,15 +59,14 @@ table.md-table td { min-width: 80px; }
 .CodeMirror pre { padding: 0px 4px; }
 .CodeMirror-lines { padding: 0px; }
 div.hr:focus { cursor: none; }
-pre { white-space: pre-wrap; }
 .md-fences { font-size: 0.9rem; display: block; overflow: visible; white-space: pre; background: inherit; position: relative !important; }
 .md-diagram-panel { width: 100%; margin-top: 10px; text-align: center; padding-top: 0px; padding-bottom: 8px; overflow-x: auto; }
 .md-fences .CodeMirror.CodeMirror-wrap { top: -1.6em; margin-bottom: -1.6em; }
 .md-fences.mock-cm { white-space: pre-wrap; }
 .show-fences-line-number .md-fences { padding-left: 0px; }
 .show-fences-line-number .md-fences.mock-cm { padding-left: 40px; }
-.footnotes { opacity: 0.8; font-size: 0.9rem; padding-top: 1em; padding-bottom: 1em; }
-.footnotes + .footnotes { margin-top: -1em; }
+.footnotes { opacity: 0.8; font-size: 0.9rem; margin-top: 1em; margin-bottom: 1em; }
+.footnotes + .footnotes { margin-top: 0px; }
 .md-reset { margin: 0px; padding: 0px; border: 0px; vertical-align: top; background: 0px 0px; text-shadow: none; position: static; width: auto; height: auto; white-space: nowrap; cursor: inherit; -webkit-tap-highlight-color: transparent; line-height: normal; font-weight: 400; text-align: left; box-sizing: content-box; }
 .md-toc-inner, a img, img a { cursor: pointer; }
 li div { padding-top: 0px; }
@@ -71,18 +75,17 @@ li .mathjax-block, li p { margin: 0.5rem 0px; }
 li { margin: 0px; position: relative; }
 blockquote > :last-child { margin-bottom: 0px; }
 blockquote > :first-child { margin-top: 0px; }
-.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: nowrap; }
+.footnotes-area { color: rgb(136, 136, 136); margin-top: 0.714rem; padding-bottom: 0.143rem; white-space: normal; }
 @media print {
   body, html { border: 1px solid transparent; height: 99%; break-after: avoid; break-before: avoid; }
+  #write { margin-top: 0px; border-color: transparent !important; }
   .typora-export * { -webkit-print-color-adjust: exact; }
-  h1, h2, h3, h4, h5, h6 { break-after: avoid-page; orphans: 2; }
-  p { orphans: 4; }
   html.blink-to-pdf { font-size: 13px; }
   .typora-export #write { padding-left: 1cm; padding-right: 1cm; padding-bottom: 0px; break-after: avoid; }
   .typora-export #write::after { height: 0px; }
   @page { margin: 20mm 0px; }
 }
-.footnote-line { margin-top: 0.714em; font-size: 0.7em; }
+.footnote-line { white-space: pre-wrap; margin-top: 0.714em; font-size: 0.7em; }
 pre.md-meta-block { font-size: 0.8rem; min-height: 0.8rem; white-space: pre-wrap; background: rgb(204, 204, 204); display: block; overflow-x: hidden; }
 p > img:only-child { display: block; margin: auto; }
 .md-line > .md-image:only-child, p > .md-image:only-child { display: inline-block; width: 100%; text-align: center; }
@@ -117,11 +120,9 @@ a.md-toc-inner { font-size: inherit; font-style: inherit; font-weight: inherit; 
 .footnote-line a:not(.reversefootnote) { color: inherit; }
 .md-attr { display: none; }
 .md-fn-count::after { content: "."; }
-.md-tag { opacity: 0.5; }
 code, pre, tt { font-family: var(--monospace); }
 .md-comment { color: rgb(162, 127, 3); opacity: 0.8; font-family: var(--monospace); }
 code { text-align: left; }
-h1 .md-tag, h2 .md-tag, h3 .md-tag, h4 .md-tag, h5 .md-tag, h6 .md-tag { font-weight: initial; opacity: 0.35; }
 a.md-print-anchor { border-width: initial !important; border-style: none !important; border-color: initial !important; display: inline-block !important; position: absolute !important; width: 1px !important; right: 0px !important; outline: 0px !important; background: 0px 0px !important; text-decoration: initial !important; text-shadow: initial !important; }
 .md-inline-math .MathJax_SVG .noError { display: none !important; }
 .mathjax-block .MathJax_SVG_Display { text-align: center; margin: 1em 0px; position: relative; min-width: 100%; width: auto; display: block !important; }
@@ -130,6 +131,7 @@ a.md-print-anchor { border-width: initial !important; border-style: none !import
 .MathJax_SVG .MJX-sans-serif { font-family: sans-serif; }
 .MathJax_SVG { display: inline; font-style: normal; font-weight: 400; line-height: normal; zoom: 90%; text-align: left; text-transform: none; letter-spacing: normal; word-spacing: normal; word-wrap: normal; white-space: nowrap; min-width: 0px; border: 0px; padding: 0px; margin: 0px; }
 .MathJax_SVG * { transition: none; }
+.os-windows.monocolor-emoji .md-emoji { font-family: "Segoe UI Symbol", sans-serif; }
 .md-diagram-panel > svg, [lang="flow"] svg, [lang="mermaid"] svg { max-width: 100%; }
 [lang="mermaid"] .node text { font-size: 1rem; }
 table tr th { border-bottom: 0px; }
@@ -163,7 +165,7 @@ h5 { font-size: 1em; }
 h6 { font-size: 1em; color: rgb(119, 119, 119); }
 p, blockquote, ul, ol, dl, table { margin: 0.8em 0px; }
 li > ol, li > ul { margin: 0px; }
-hr { height: 4px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border-width: 0px 0px 1px; border-style: none none solid; border-top-color: initial; border-right-color: initial; border-left-color: initial; border-image: initial; overflow: hidden; box-sizing: content-box; border-bottom-color: rgb(221, 221, 221); }
+hr { height: 2px; padding: 0px; margin: 16px 0px; background-color: rgb(231, 231, 231); border: 0px none; overflow: hidden; box-sizing: content-box; }
 body > h2:first-child { margin-top: 0px; padding-top: 0px; }
 body > h1:first-child { margin-top: 0px; padding-top: 0px; }
 body > h1:first-child + h2 { margin-top: 0px; padding-top: 0px; }
@@ -174,17 +176,17 @@ li p.first { display: inline-block; }
 ul, ol { padding-left: 30px; }
 ul:first-child, ol:first-child { margin-top: 0px; }
 ul:last-child, ol:last-child { margin-bottom: 0px; }
-blockquote { border-left: 4px solid rgb(221, 221, 221); padding: 0px 15px; color: rgb(119, 119, 119); }
+blockquote { border-left: 4px solid rgb(223, 226, 229); padding: 0px 15px; color: rgb(119, 119, 119); }
 blockquote blockquote { padding-right: 0px; }
 table { padding: 0px; word-break: initial; }
-table tr { border-top: 1px solid rgb(204, 204, 204); margin: 0px; padding: 0px; }
-table tr:nth-child(2n) { background-color: rgb(248, 248, 248); }
-table tr th { font-weight: bold; border-width: 1px 1px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: rgb(204, 204, 204); border-right-color: rgb(204, 204, 204); border-left-color: rgb(204, 204, 204); border-image: initial; border-bottom-style: initial; border-bottom-color: initial; text-align: left; margin: 0px; padding: 6px 13px; }
-table tr td { border: 1px solid rgb(204, 204, 204); text-align: left; margin: 0px; padding: 6px 13px; }
+table tr { border-top: 1px solid rgb(223, 226, 229); margin: 0px; padding: 0px; }
+table tr:nth-child(2n), thead { background-color: rgb(248, 248, 248); }
+table tr th { font-weight: bold; border-width: 1px 1px 0px; border-top-style: solid; border-right-style: solid; border-left-style: solid; border-top-color: rgb(223, 226, 229); border-right-color: rgb(223, 226, 229); border-left-color: rgb(223, 226, 229); border-image: initial; border-bottom-style: initial; border-bottom-color: initial; text-align: left; margin: 0px; padding: 6px 13px; }
+table tr td { border: 1px solid rgb(223, 226, 229); text-align: left; margin: 0px; padding: 6px 13px; }
 table tr th:first-child, table tr td:first-child { margin-top: 0px; }
 table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
 .CodeMirror-gutters { border-right: 1px solid rgb(221, 221, 221); }
-.md-fences, code, tt { border: 1px solid rgb(221, 221, 221); background-color: rgb(248, 248, 248); border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 4px 0px; font-size: 0.9em; }
+.md-fences, code, tt { border: 1px solid rgb(223, 226, 229); background-color: rgb(248, 248, 248); border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 4px 0px; font-size: 0.9em; }
 .md-fences { margin-bottom: 15px; margin-top: 15px; padding: 8px 1em 6px; }
 .md-task-list-item > input { margin-left: -1.3em; }
 @media screen and (min-width: 914px) {
@@ -201,7 +203,7 @@ table tr th:last-child, table tr td:last-child { margin-bottom: 0px; }
 #write > h4.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
 #write > h5.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
 #write > h6.md-focus::before { left: -1.5625rem; top: 0.285714rem; }
-.md-image > .md-meta { border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 4px 0px; font-size: 0.9em; color: inherit; }
+.md-image > .md-meta { border-radius: 3px; font-family: Consolas, "Liberation Mono", Courier, monospace; padding: 2px 0px 0px 4px; font-size: 0.9em; color: inherit; }
 .md-tag { color: inherit; }
 .md-toc { margin-top: 20px; padding-bottom: 20px; }
 .sidebar-tabs { border-bottom: none; }
@@ -219,10 +221,10 @@ header, .context-menu, .megamenu-content, footer { font-family: "Segoe UI", Aria
 
 
 
-
+ .typora-export p, .typora-export .footnote-line {white-space: normal;} 
 </style>
 </head>
-<body class='typora-export' >
-<div  id='write'  class = 'is-node'><p><img src='http://course.bnu.edu.cn/course/jswl/images/design_01.gif' alt='img' /></p><h1><a name='header-n52' class='md-header-anchor '></a>2018习题参考解答</h1><p>​	此答案<em>仅供参考</em>，对于简单的问题这里一般只给出一种方法，有同学问过的题可能多写一点。<span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-1-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0.243ex" viewBox="0 -52.3 0 104.5" role="img" focusable="false" style="vertical-align: -0.121ex;"><defs></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"></g></svg></span><script type="math/tex" id="MathJax-Element-1">%对于具有讨论意义的题目，我们也可能列出同学们作业中的优秀解法。</script>如果你发现答案存在问题，可以通过微信/公邮反馈或通过本页末尾的邮件地址直接联系我们。</p><h2><a name='header-n55' class='md-header-anchor '></a>习题解答</h2><figure><table><thead><tr><th style='text-align:left;' >作业</th><th style='text-align:center;' >链接</th><th style='text-align:center;' >备注</th></tr></thead><tbody><tr><td style='text-align:left;' >第一次和第二次作业</td><td style='text-align:center;' ><a href='https://wang-guosheng.github.io/CompPhyExs/ex1ex2.html'>在线查看</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex1ex2.mlx'>下载Live Script</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex1ex2.pdf'>下载PDF</a></td><td style='text-align:center;' >网页版答案是MATLAB2017a(win64版本)运行的结果。不同版本下呈现结果可能稍有不同。</td></tr><tr><td style='text-align:left;' >第三次作业</td><td style='text-align:center;' ><a href='https://wang-guosheng.github.io/CompPhyExs/ex3.html'>在线查看</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex3.mlx'>下载Live Script</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex3.pdf'>下载PDF</a></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:left;' >第四次作业</td><td style='text-align:center;' ><a href='https://wang-guosheng.github.io/CompPhyExs/ex4.html'>在线查看</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex4.mlx'>下载Live Script</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex4.pdf'>下载PDF</a></td><td style='text-align:center;' >&nbsp;</td></tr></tbody></table></figure><h4><a name='header-n73' class='md-header-anchor '></a>关于<code>Live Script</code>的说明：</h4><p>​	MATLAB® 实时脚本（<code>Live Script</code>）是一种交互式文档，它在一个称为实时编辑器的环境中将 MATLAB 代码与嵌入式输出、格式化文本、方程和图像组合到一起。实时脚本使用实时脚本文件格式存储在扩展名为 <code>.mlx</code> 的文件中。在MATLAB主页选择<code>Home&gt;Open&gt;Open</code>选择下载的文件打开即可。如需写作实时脚本，可在MATLAB主页选择<code>Home&gt;New&gt;Live Script</code>新建，<code>Ctrl</code>+<code>E</code>切换文本模式与代码模式，点击<code>Run</code>运行即可。</p><h2><a name='header-n76' class='md-header-anchor '></a>前两次作业的问题</h2><p>​	请注意看题；注意不要漏题；</p><p>​	另外有一个建议，MATLAB包括大量库函数，作业里遇到新的功能需求时，可以先查找MATLAB自带的函数（以至工具箱），如果找不到再考虑自己实现。</p><h2><a name='header-n81' class='md-header-anchor '></a>关于作业命名和格式</h2><p>​	提交作业时，请将所有附件<strong>文件</strong>（而不只是邮件主题）各自命名为<em>学号姓名文件名</em>的格式，因为学号在前比较方便排序<code>👦</code> 。</p><p>​	对于编程和命令的作业，有兴趣的同学可以用实时脚本来写/提交。<span class="MathJax_Preview"></span><span class="MathJax_SVG" id="MathJax-Element-2-Frame" tabindex="-1" style="font-size: 100%; display: inline-block;"><svg xmlns:xlink="http://www.w3.org/1999/xlink" width="0" height="0.243ex" viewBox="0 -52.3 0 104.5" role="img" focusable="false" style="vertical-align: -0.121ex;"><defs></defs><g stroke="currentColor" fill="currentColor" stroke-width="0" transform="matrix(1 0 0 -1 0 0)"></g></svg></span><script type="math/tex" id="MathJax-Element-2">%此外，`Word`, `PDF`, `MD`, `HTML`等格式也可以，不过请尽量保持格式清晰。</script></p><p>​	如果你在Word等中写作，作图题直接存图象即可；其它题目不必每题都截图，只要证明你亲自运行过即可。输出结果很长的题可以只粘贴开头几行的结果。</p><h2><a name='header-n88' class='md-header-anchor '></a>助教联系方式</h2><ul><li>王国胜：<a href='mailto:wguosh@outlook.com' target='_blank' >wguosh@outlook.com</a></li><li>杨烨华：<a href='mailto:1162587522@qq.com' target='_blank' >1162587522@qq.com</a></li><li>作业邮箱：<a href='mailto:jswljc2018@163.com' target='_blank' >jswljc2018@163.com</a></li></ul><h2><a name='header-n99' class='md-header-anchor '></a> </h2><p>This webpage is open sourced under <a href='https://wang-guosheng.github.io/CompPhyExs/LICENSE.html'>MIT LICENSE</a>.</p></div>
+<body class='typora-export os-windows' >
+<div  id='write'  class = 'is-node'><p><img src='http://course.bnu.edu.cn/course/jswl/images/design_01.gif' alt='img' referrerPolicy='no-referrer' /></p><h1><a name='header-n3' class='md-header-anchor '></a>2018习题参考解答</h1><p>​	此答案<em>仅供参考</em>，对于简单的问题这里一般只给出一种方法，有同学问过的题可能多写一点。$%对于具有讨论意义的题目，我们也可能列出同学们作业中的优秀解法。$如果你发现答案存在问题，可以通过微信/公邮反馈或通过本页末尾的邮件地址直接联系我们。</p><h2><a name='header-n6' class='md-header-anchor '></a>习题解答</h2><figure><table><thead><tr><th style='text-align:left;' >作业</th><th style='text-align:center;' >链接</th><th style='text-align:center;' >备注</th></tr></thead><tbody><tr><td style='text-align:left;' >第一次和第二次作业</td><td style='text-align:center;' ><a href='https://wang-guosheng.github.io/CompPhyExs/ex1ex2.html'>在线查看</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex1ex2.mlx'>下载Live Script</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex1ex2.pdf'>下载PDF</a></td><td style='text-align:center;' >网页版答案是MATLAB2017a(win64版本)运行的结果。不同版本下呈现结果可能稍有不同。</td></tr><tr><td style='text-align:left;' >第三次作业</td><td style='text-align:center;' ><a href='https://wang-guosheng.github.io/CompPhyExs/ex3.html'>在线查看</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex3.mlx'>下载Live Script</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex3.pdf'>下载PDF</a></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:left;' >第四次作业</td><td style='text-align:center;' ><a href='https://wang-guosheng.github.io/CompPhyExs/ex4.html'>在线查看</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex4.mlx'>下载Live Script</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex4.pdf'>下载PDF</a></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:left;' >第五次作业</td><td style='text-align:center;' ><a href='https://wang-guosheng.github.io/CompPhyExs/ex5.html'>在线查看</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex5.m'>下载脚本</a></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:left;' >第六次作业</td><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' >（实时脚本试验略）</td></tr><tr><td style='text-align:left;' >第七次作业</td><td style='text-align:center;' ><a href='https://wang-guosheng.github.io/CompPhyExs/ex7display.html'>在线查看</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex7.mlx'>下载Live Script</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex7.pdf'>下载PDF</a></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:left;' >第八次作业</td><td style='text-align:center;' ><a href='https://wang-guosheng.github.io/CompPhyExs/ex8display.html'>在线查看</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex8.mlx'>下载Live Script</a>/<a href='https://wang-guosheng.github.io/CompPhyExs/ex8.pdf'>下载PDF</a></td><td style='text-align:center;' >&nbsp;</td></tr><tr><td style='text-align:left;' >第九次作业</td><td style='text-align:center;' >&nbsp;</td><td style='text-align:center;' >（参数设置和误差推导）</td></tr><tr><td style='text-align:left;' >第十次作业</td><td style='text-align:center;' ><a href='https://wang-guosheng.github.io/CompPhyExs/ex10.html'>在线查看</a></td><td style='text-align:center;' >&nbsp;</td></tr></tbody></table></figure><h4><a name='header-n24' class='md-header-anchor '></a>关于<code>Live Script</code>的说明：</h4><p>​	MATLAB® 实时脚本（<code>Live Script</code>）是一种交互式文档，它在一个称为实时编辑器的环境中将 MATLAB 代码与嵌入式输出、格式化文本、方程和图像组合到一起。实时脚本使用实时脚本文件格式存储在扩展名为 <code>.mlx</code> 的文件中。在MATLAB主页选择<code>Home&gt;Open&gt;Open</code>选择下载的文件打开即可。如需写作实时脚本，可在MATLAB主页选择<code>Home&gt;New&gt;Live Script</code>新建，<code>Ctrl</code>+<code>E</code>切换文本模式与代码模式，点击<code>Run</code>运行即可。</p><h2><a name='header-n27' class='md-header-anchor '></a>前两次作业的问题</h2><p>​	请注意看题；注意不要漏题；</p><p>​	另外有一个建议，MATLAB包括大量库函数，作业里遇到新的功能需求时，可以先查找MATLAB自带的函数（以至工具箱），如果找不到再考虑自己实现。</p><h2><a name='header-n32' class='md-header-anchor '></a>关于作业命名和格式</h2><p>​	提交作业时，请将所有附件<strong>文件</strong>（而不只是邮件主题）各自命名为<em>学号姓名文件名</em>的格式，因为学号在前比较方便排序<code>👦</code> 。</p><p>​	对于编程和命令的作业，有兴趣的同学可以用实时脚本来写/提交。$%此外，<code>Word</code>, <code>PDF</code>, <code>MD</code>, <code>HTML</code>等格式也可以，不过请尽量保持格式清晰。$</p><p>​	如果你在Word等中写作，作图题直接存图象即可；其它题目不必每题都截图，只要证明你亲自运行过即可。输出结果很长的题可以只粘贴开头几行的结果。</p><h2><a name='header-n39' class='md-header-anchor '></a>助教联系方式</h2><ul><li>王国胜：<a href='mailto:wguosh@outlook.com' target='_blank' class='url'>wguosh@outlook.com</a></li><li>杨烨华：<a href='mailto:1162587522@qq.com' target='_blank' class='url'>1162587522@qq.com</a></li><li>作业邮箱：<a href='mailto:jswljc2018@163.com' target='_blank' class='url'>jswljc2018@163.com</a></li></ul><h2><a name='header-n50' class='md-header-anchor '></a> </h2><p>This webpage is open sourced under <a href='https://wang-guosheng.github.io/CompPhyExs/LICENSE.html'>MIT LICENSE</a>.</p></div>
 </body>
 </html>
